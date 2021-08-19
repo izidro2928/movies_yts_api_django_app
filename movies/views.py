@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.decorators.clickjacking import xframe_options_exempt
 import requests
-from django.contrib.auth.forms import UserCreationForm
+from .form import UserRegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
@@ -274,7 +274,7 @@ def category(request, category_name):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
 
         if form.is_valid():
             form.save()
@@ -282,7 +282,7 @@ def register(request):
             return redirect('login')
 
     else:
-        form = UserCreationForm()
+        form = UserRegisterForm()
 
     context = {
         'form': form,

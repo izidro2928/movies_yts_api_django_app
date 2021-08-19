@@ -67,7 +67,7 @@ img{
 }
 
 /* Full-width inputs */
-.login-page input[type=text], .login-page input[type=password] {
+.login-page input[type=text], .login-page input[type=password], .login-page input[type=email] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -76,3 +76,8 @@ img{
   box-sizing: border-box;
 }
 
+.login-page ul{
+    background-color: #1f9bcf;
+    padding: 15px;
+    color: #fff !important;
+}
