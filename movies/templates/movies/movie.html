@@ -1,0 +1,114 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <div class="bg-img text-white rounded-top"
+                 style="background-image: url('{{ movie.background_image_original }}')">
+                <div class="overlay p-3">
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <img src="{{ movie.large_cover_image }}" alt="{{ movie.title }}"
+                                 class="rounded img-details"/>
+                            <div class="d-grid">
+                                <button class="btn btn-warning my-1 rounded" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">Trailer
+                                </button>
+                               {% if request.user.is_authenticated %}
+                               <a class="btn btn-success my-1 rounded"
+                                   href="magnet:?xt=urn:btih:{{ movie.torrents.0.hash }}&dn={{ movie.url }}&tr=http://track.one:1234/announce&tr=udp://glotorrents.pw:6969/announce&tr=udp://track.two:80">Download</a>
+                               {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="text-white">{{ movie.title }} ({{ movie.year }})</h3>
+                            {% if movie.mpa_rating %}
+                                <p>
+                                    <strong>Rated: </strong>{{ movie.mpa_rating }}
+                                </p>
+                            {% endif %}
+                            {% if movie.language %}
+                                <p>
+                                    <strong>language: </strong>{{ movie.language }}
+                                </p>
+                            {% endif %}
+                            {% if movie.runtime %}
+                                <p>
+                                    <strong>Runtime: </strong>{{ movie.runtime }}
+                                </p>
+                            {% endif %}
+                            {% if movie.rating %}
+                                <p>
+                                    <strong>Votes: </strong>{{ movie.rating }}
+                                </p>
+                            {% endif %}
+                            <p>
+                                <strong>Genres:</strong>
+                                {{ genres }}
+                            </p>
+                        </div>
+                        <div class="col">
+                            <h3 class="text-center pb-3 text-white">Similar movies</h3>
+                            <div class="row row-cols-sm-2 gy-3">
+                                {% for su_movie in movies %}
+                                    <div class="col text-center">
+                                        <a href="{% url 'movie' movie_id=su_movie.id %}">
+                                            <img src="{{ su_movie.medium_cover_image }}" alt="{{ su_movie.title }}"
+                                                 class="rounded su-movies-img">
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="more-info p-3 rounded-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Sinopsys</h3>
+                        <p>{{ movie.description_full }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Casting</h3>
+                        <ul>
+                            {% for foo in movie.cast %}
+                                <li class="d-flex mb-3 cast-border pb-3">
+                                    <img src="{{ foo.url_small_image }}" alt="{{ foo.name }}"
+                                         class="rounded-circle me-2">
+                                    <p class="m-0 pt-3">{{ foo.name }} as <span
+                                            class="text-danger">{{ foo.character_name }}</span></p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="facebook-comments">
+            </div>
+            <div class="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{ movie.title }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/{{ movie.yt_trailer_code }}"
+                                        title="YouTube video player"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}
+{% block facebook_js %}
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+    <section class="login-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <form method="post">
+                        {% if login_error_message %}
+                            <div class="alert alert-danger">{{ login_error_message }}</div>
+                        {% endif %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-success">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="l1" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="l1"
+                                   placeholder="Type your username" name="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="l2" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="l2"
+                                   placeholder="Type your password" name="password">
+                        </div>
+                        <div class="mb-3">
+                            <p>Don't have an account? <a href="{% url 'register' %}" class="text-info border-bottom">Create an account.</a></p>
+                        </div>
+                        <button type="submit" class="btn btn-info">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

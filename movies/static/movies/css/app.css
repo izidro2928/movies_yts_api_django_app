@@ -1,0 +1,78 @@
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+.img-details{
+    max-width: 100%;
+    border: 5px solid #959595;
+}
+
+.movie-rating, .movie-year{
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.movie-rating{
+    background-color: #eaea26;
+}
+
+.movie-year{
+    color: #fff;
+    background-color: #9954bb;
+}
+.bg-img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.spinning{
+    animation: spinner 1s linear infinite;
+    color: #55595c;
+}
+
+@keyframes spinner {
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.su-movies-img {
+    width: 100%;
+    border: 5px solid #959595;
+}
+
+.more-info{
+    background-color: #fff;
+}
+.cast-border{
+    border-bottom: 1px solid #cdcdcd;
+}
+.overlay{
+    background-color: #0000009e;
+}
+
+/* Bordered form */
+.login-page form {
+  border: 3px solid #f1f1f1;
+    padding: 15px;
+    margin-top: 60px;
+}
+
+/* Full-width inputs */
+.login-page input[type=text], .login-page input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+

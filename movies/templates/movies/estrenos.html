@@ -1,0 +1,41 @@
+{% extends 'movies/base.html' %}
+{% block content %}
+    <section class="my-5">
+        <div class="container">
+            <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 gy-3">
+                {% for movie in movies %}
+                    <div class="col">
+                        <div class="movie">
+                            <img src="{{ movie.large_cover_image }}" alt="{{ movie.title }}" class="rounded"/>
+                            <div class="pt-2">
+                                <h5 class="mb-3 text-truncate text-white">{{ movie.title }}</h5>
+                                <div class="d-flex justify-content-between">
+                                    <p><span class="movie-year">{{ movie.year }}</span></p>
+                                    <p><span class="movie-rating">{{ movie.rating }}</span></p>
+                                </div>
+                                <a href="{% url 'movie' movie_id=movie.id %}">
+                                    <div class="d-grid">
+                                        <button class="btn btn-warning rounded">Watch movie</button>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="paginator d-flex justify-content-between py-5">
+                {% if pre_page == None %}
+                    <a class="previous-page btn btn-info disabled rounded-1">Previous</a>
+                {% else %}
+                    <a class="previous-page btn btn-info rounded-1" href="?page={{ pre_page }}">Previous</a>
+                {% endif %}
+                <button class="btn bg-white" disabled>page: {{ data.page_number }}</button>
+                {% if next_page == None %}
+                    <a class="previous-page btn btn-info disabled rounded-1">Next</a>
+                {% else %}
+                    <a class="next-page btn btn-info rounded-1" href="?page={{ next_page }}">Next</a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
