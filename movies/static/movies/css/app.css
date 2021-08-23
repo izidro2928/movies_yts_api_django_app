@@ -1,45 +1,49 @@
-ul{
+ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
-img{
+
+img {
     max-width: 100%;
 }
-.img-details{
+
+.img-details {
     max-width: 100%;
     border: 5px solid #959595;
 }
 
-.movie-rating, .movie-year{
+.movie-rating, .movie-year {
     border-radius: 5px;
     padding: 5px 10px;
 }
 
-.movie-rating{
+.movie-rating {
     background-color: #eaea26;
 }
 
-.movie-year{
+.movie-year {
     color: #fff;
     background-color: #9954bb;
 }
-.bg-img{
+
+.bg-img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.spinning{
+.spinning {
     animation: spinner 1s linear infinite;
     color: #55595c;
 }
 
 @keyframes spinner {
-    to{
+    to {
         transform: rotate(360deg);
     }
 }
@@ -49,35 +53,37 @@ img{
     border: 5px solid #959595;
 }
 
-.more-info{
+.more-info {
     background-color: #fff;
 }
-.cast-border{
+
+.cast-border {
     border-bottom: 1px solid #cdcdcd;
 }
-.overlay{
+
+.overlay {
     background-color: #0000009e;
 }
 
 /* Bordered form */
-.login-page form {
-  border: 3px solid #f1f1f1;
+.login-page form, .reset form {
+    border: 3px solid #f1f1f1;
     padding: 15px;
     margin-top: 30px;
 }
 
 /* Full-width inputs */
-.login-page input[type=text], .login-page input[type=password], .login-page input[type=email] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+.login-page input[type=text], .login-page input[type=password], .login-page input[type=email], .reset input[type=email], .reset input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
-.login-page ul{
-    background-color: #1f9bcf;
+.login-page ul, .reset ul {
+    background-color: #f8d7da;
     padding: 15px;
-    color: #fff !important;
+    color: #842029 !important;
 }

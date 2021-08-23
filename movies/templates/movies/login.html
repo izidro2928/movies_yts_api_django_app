@@ -5,6 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
+                    <h1 class="display-6 text-center mt-5">Login</h1>
                     <form method="post">
                         {% if login_error_message %}
                             <div class="alert alert-danger">{{ login_error_message }}</div>
@@ -17,16 +18,17 @@
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="l1" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="l1"
-                                   placeholder="Type your username" name="username">
+                            <input type="text" class="form-control" id="l1" name="username" required>
                         </div>
                         <div class="mb-3">
                             <label for="l2" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="l2"
-                                   placeholder="Type your password" name="password">
+                            <input type="password" class="form-control" id="l2" name="password" required>
                         </div>
                         <div class="mb-3">
                             <p>Don't have an account? <a href="{% url 'register' %}" class="text-info border-bottom">Create an account.</a></p>
+                        </div>
+                        <div class="mb-3">
+                            <p>Forgot password? <a href="{% url 'password_reset' %}" class="text-info border-bottom">reset</a></p>
                         </div>
                         <button type="submit" class="btn btn-info">Login</button>
                     </form>

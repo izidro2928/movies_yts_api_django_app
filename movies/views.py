@@ -1,9 +1,10 @@
 from django.contrib import messages
+from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
 from django.shortcuts import render, redirect
 from django.views.decorators.clickjacking import xframe_options_exempt
 import requests
 from .form import UserRegisterForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 
 
@@ -316,4 +317,9 @@ def logout_user(request):
 
 @login_required(login_url='login')
 def account(request):
-    return render(request, 'movies/account.html')
+    current_user = request.user
+    return render(request, 'movies/account.html', {
+        "user": current_user,
+    })
+
+
