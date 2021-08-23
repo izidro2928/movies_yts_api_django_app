@@ -274,6 +274,8 @@ def category(request, category_name):
 
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('account')
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
 
@@ -292,6 +294,8 @@ def register(request):
 
 
 def login_page(request):
+    if request.user.is_authenticated:
+        return redirect('account')
     login_error_message = ''
     if request.method == 'POST':
         username = request.POST['username']
@@ -321,5 +325,3 @@ def account(request):
     return render(request, 'movies/account.html', {
         "user": current_user,
     })
-
-
