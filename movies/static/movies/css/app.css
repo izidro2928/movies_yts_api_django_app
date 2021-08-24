@@ -65,12 +65,7 @@ img {
     background-color: #0000009e;
 }
 
-/* Bordered form */
-.login-page form, .reset form {
-    border: 3px solid #f1f1f1;
-    padding: 15px;
-    margin-top: 30px;
-}
+
 
 /* Full-width inputs */
 .login-page input[type=text],
@@ -85,10 +80,24 @@ img {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    border-radius: 5px;
 }
 
 .login-page ul, .reset ul, .change-pass ul {
     background-color: #f8d7da;
     padding: 15px;
     color: #842029 !important;
+    border-radius: 5px;
+}
+
+.login-page, .reset, .change-pass{
+    background-color: #282828;
+    padding-bottom: 90px;
+
+}
+
+.login-page form, .reset form, .change-pass form{
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 30px;
 }

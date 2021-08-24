@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='login')
 def home(request):
     data = []
     movies = []
@@ -48,6 +49,7 @@ def home(request):
     })
 
 
+@login_required(login_url='login')
 def top_movies(request):
     try:
         page_num = request.GET.get('page', 1)
@@ -85,6 +87,7 @@ def top_movies(request):
     })
 
 
+@login_required(login_url='login')
 def estrenos(request):
     try:
         page_num = request.GET.get('page', 1)
@@ -123,6 +126,7 @@ def estrenos(request):
     })
 
 
+@login_required(login_url='login')
 def populares(request):
     try:
         page_num = request.GET.get('page', 1)
@@ -160,6 +164,7 @@ def populares(request):
     })
 
 
+@login_required(login_url='login')
 @xframe_options_exempt
 def movie(request, movie_id):
     url = f'https://yts.mx/api/v2/movie_details.json?movie_id={movie_id}&with_cast=true'
@@ -188,6 +193,7 @@ def movie(request, movie_id):
     })
 
 
+@login_required(login_url='login')
 def search(request):
     data = []
     movies = []
@@ -234,6 +240,7 @@ def search(request):
     })
 
 
+@login_required(login_url='login')
 def category(request, category_name):
     try:
         page_num = request.GET.get('page', 1)
@@ -305,7 +312,7 @@ def login_page(request):
 
         if user is not None:
             login(request, user)
-            return redirect('account')
+            return redirect('home')
         else:
             login_error_message = "Username or password is incorrect"
 

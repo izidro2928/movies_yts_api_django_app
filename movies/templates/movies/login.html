@@ -1,12 +1,14 @@
 {% extends 'movies/base.html' %}
+{% load static %}
 
+{% block title %}Login{% endblock %}
 {% block content %}
     <section class="login-page">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
-                    <h1 class="display-6 text-center mt-5">Login</h1>
-                    <form method="post">
+                    <h1 class="display-6 text-center mt-5 text-white">Login</h1>
+                    <form method="post" class="rounded">
                         {% if login_error_message %}
                             <div class="alert alert-danger">{{ login_error_message }}</div>
                         {% endif %}
@@ -28,9 +30,9 @@
                             <p>Don't have an account? <a href="{% url 'register' %}" class="text-info border-bottom">Create an account.</a></p>
                         </div>
                         <div class="mb-3">
-                            <p>Forgot password? <a href="{% url 'password_reset' %}" class="text-info border-bottom">reset</a></p>
+                            <p>Forgot password? <a href="{% url 'password_reset' %}" class="text-info border-bottom">reset password</a></p>
                         </div>
-                        <button type="submit" class="btn btn-info">Login</button>
+                        <button type="submit" class="btn btn-warning rounded">Login</button>
                     </form>
                 </div>
             </div>
