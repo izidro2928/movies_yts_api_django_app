@@ -47,6 +47,26 @@
                                 <strong>Genres:</strong>
                                 {{ genres }}
                             </p>
+                            <p>
+                                <strong>quality:</strong>
+                                {{ movie.torrents.0.quality }}
+                            </p>
+                            <p>
+                                <strong>Type:</strong>
+                                {{ movie.torrents.0.type }}
+                            </p>
+                            <p>
+                                <strong>Downloads:</strong>
+                                {{ movie.download_count }}
+                            </p>
+                            <p>
+                                <strong>Likes:</strong>
+                                {{ movie.like_count }}
+                            </p>
+                            <p>
+                                <strong>Seeds:</strong>
+                                {{ movie.torrents.0.seeds }}
+                            </p>
                         </div>
                         <div class="col">
                             <h3 class="text-center pb-3 text-white">Similar movies</h3>
